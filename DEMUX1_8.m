@@ -1,0 +1,30 @@
+%DEMUX 1-TO-8
+function [D0,D1,D2,D3,D4,D5,D6,D7]=DEMUX1_8(S2,S1,S0,in)
+sel2=NOT_gate(S2);
+sel1=NOT_gate(S1);
+sel0=NOT_gate(S0);
+a=AND_gate(sel2,sel1);
+b=AND_gate(sel0,in);
+D0=AND_gate(a,b);
+c=AND_gate(sel2,sel1);
+d=AND_gate(S0,in);
+D1=AND_gate(c,d);
+e=AND_gate(sel2,S1);
+f=AND_gate(sel0,in);
+D2=AND_gate(e,f);
+g=AND_gate(sel2,S1);
+h=AND_gate(S0,in);
+D3=AND_gate(g,h);
+i=AND_gate(S2,sel1);
+j=AND_gate(sel0,in);
+D4=AND_gate(i,j);
+k=AND_gate(S2,sel1);
+l=AND_gate(S0,in);
+D5=AND_gate(k,l);
+m=AND_gate(S2,S1);
+n=AND_gate(sel0,in);
+D6=AND_gate(m,n);
+o=AND_gate(S2,S1);
+p=AND_gate(S0,in);
+D7=AND_gate(o,p);
+end
